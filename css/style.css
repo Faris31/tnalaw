@@ -219,6 +219,7 @@ a:focus {
   }
   .top-bar .logo h2 {
     font-size: 22px;
+    text-align: center;
   }
   .top-bar .image img {
     width: 10px;
@@ -238,6 +239,32 @@ a:focus {
     justify-content: center;
   }
 }
+/* @media (min-width: 575.98px) {
+  .top-bar {
+    height: auto;
+    padding: 20px 0;
+  }
+  .top-bar .logo h2 {
+    font-size: 22px;
+  }
+  .top-bar .image img {
+    width: 10px;
+  }
+  .top-bar .image {
+    display: flex;
+    justify-content: center;
+  }
+  .top-bar .logo .subtext {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+  .top-bar .logo .tagline {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+} */
 
 /**********************************/
 /*********** Nav Bar CSS **********/
