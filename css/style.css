@@ -792,6 +792,7 @@ a:focus {
 
 .about .about-text p {
   font-size: 16px;
+  text-align: justify;
 }
 
 .about .about-text a.btn {
