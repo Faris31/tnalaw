@@ -218,16 +218,24 @@ a:focus {
     padding: 20px 0;
   }
   .top-bar .logo h2 {
-    font-size: 14px;
+    font-size: 22px;
   }
   .top-bar .image img {
     width: 10px;
   }
+  .top-bar .image {
+    display: flex;
+    justify-content: center;
+  }
   .top-bar .logo .subtext {
     font-size: 14px;
+    display: flex;
+    justify-content: center;
   }
   .top-bar .logo .tagline {
-    font-size: 12px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
   }
 }
 
