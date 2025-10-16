@@ -7,8 +7,12 @@ $row = mysqli_fetch_assoc($querySetting);
 
 if (isset($_POST['simpan'])) {
     $name = $_POST['name'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
     $fb = $_POST['fb'];
     $ig = $_POST['ig'];
+    $yt = $_POST['yt'];
     $twitter = $_POST['twitter'];
     $linkedin = $_POST['linkedin'];
 
@@ -36,13 +40,13 @@ if (isset($_POST['simpan'])) {
         //update 
 
         $id_setting = $row['id'];
-        $update = mysqli_query($koneksi, "UPDATE settings SET name='$name',ig='$ig', fb='$fb', twitter= '$twitter',linkedin='$linkedin'");
+        $update = mysqli_query($koneksi, "UPDATE settings SET name='$name', address='$address', phone='$phone',email='$email' ,ig='$ig', fb='$fb',yt='$yt' ,twitter= '$twitter',linkedin='$linkedin'");
         if ($update) {
             header("location:?page=setting&ubah=berhasil");
         }
     } else {
         //insert
-        $insert = mysqli_query($koneksi, "INSERT INTO settings (name, ig, fb, twitter,linkedin) VALUES ('$name', '$ig', '$fb', '$twitter','$linkedin')");
+        $insert = mysqli_query($koneksi, "INSERT INTO settings (name,address,phone,email,yt ,ig, fb, twitter,linkedin) VALUES ('$name', '$address','$phone','$email', '$yt','$ig', '$fb', '$twitter','$linkedin')");
         if ($insert) {
             header("location:?page=setting&tambah=berhasil");
         }
@@ -72,7 +76,7 @@ if (isset($_POST['simpan'])) {
                         <div class="mb-3 mt-3 row">
                             <label class="col-sm-2 col-form-label fw-semibold text-light">Name</label>
                             <div class="col-sm-8">
-                                <input type="text" name="name" class="form-control bg-dark-subtle text-light border-0"
+                                <input type="text" name="name" class="form-control bg-dark-subtle border-0"
                                     value="<?php echo isset($row['name']) ? $row['name'] : '' ?>">
                             </div>
                         </div>
@@ -81,8 +85,16 @@ if (isset($_POST['simpan'])) {
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label fw-semibold text-light">Email</label>
                             <div class="col-sm-8">
-                                <input type="email" name="email" class="form-control bg-dark-subtle text-light border-0"
+                                <input type="email" name="email" class="form-control bg-dark-subtle border-0"
                                     value="<?php echo isset($row['email']) ? $row['email'] : '' ?>">
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label fw-semibold text-light">No Telp</label>
+                            <div class="col-sm-8">
+                                <input type="number" name="phone" class="form-control bg-dark-subtle border-0"
+                                    value="<?php echo isset($row['phone']) ? $row['phone'] : '' ?>">
                             </div>
                         </div>
 
@@ -90,7 +102,7 @@ if (isset($_POST['simpan'])) {
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label fw-semibold text-light">Alamat</label>
                             <div class="col-sm-8">
-                                <textarea name="alamat" id="alamat" class="form-control bg-dark-subtle text-light border-0"
+                                <textarea name="address" id="address" class="form-control bg-dark-subtle border-0"
                                     rows="3"><?php echo isset($row['address']) ? $row['address'] : '' ?></textarea>
                             </div>
                         </div>
@@ -99,7 +111,7 @@ if (isset($_POST['simpan'])) {
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label fw-semibold text-light">Facebook</label>
                             <div class="col-sm-8">
-                                <input type="url" name="fb" class="form-control bg-dark-subtle text-light border-0"
+                                <input type="url" name="fb" class="form-control bg-dark-subtle border-0"
                                     value="<?php echo isset($row['fb']) ? $row['fb'] : '' ?>">
                             </div>
                         </div>
@@ -108,7 +120,7 @@ if (isset($_POST['simpan'])) {
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label fw-semibold text-light">Twitter</label>
                             <div class="col-sm-8">
-                                <input type="url" name="twitter" class="form-control bg-dark-subtle text-light border-0"
+                                <input type="url" name="twitter" class="form-control bg-dark-subtle border-0"
                                     value="<?php echo isset($row['twitter']) ? $row['twitter'] : '' ?>">
                             </div>
                         </div>
@@ -117,8 +129,16 @@ if (isset($_POST['simpan'])) {
                         <div class="mb-3 row">
                             <label class="col-sm-2 col-form-label fw-semibold text-light">Instagram</label>
                             <div class="col-sm-8">
-                                <input type="url" name="ig" class="form-control bg-dark-subtle text-light border-0"
+                                <input type="url" name="ig" class="form-control bg-dark-subtle border-0"
                                     value="<?php echo isset($row['ig']) ? $row['ig'] : '' ?>">
+                            </div>
+                        </div>
+                         <!-- Youtube-->
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label fw-semibold text-light">Youtube</label>
+                            <div class="col-sm-8">
+                                <input type="url" name="yt" class="form-control bg-dark-subtle border-0"
+                                    value="<?php echo isset($row['yt']) ? $row['yt'] : '' ?>">
                             </div>
                         </div>
 
@@ -126,7 +146,7 @@ if (isset($_POST['simpan'])) {
                         <div class="mb-4 row">
                             <label class="col-sm-2 col-form-label fw-semibold text-light">LinkedIn</label>
                             <div class="col-sm-8">
-                                <input type="url" name="linkedin" class="form-control bg-dark-subtle text-light border-0"
+                                <input type="url" name="linkedin" class="form-control bg-dark-subtle border-0"
                                     value="<?php echo isset($row['linkedin']) ? $row['linkedin'] : '' ?>">
                             </div>
                         </div>
